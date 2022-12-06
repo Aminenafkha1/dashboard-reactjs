@@ -1,0 +1,150 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+
+
+.listingSection {
+    flex-basis: 70%;
+    .heading {
+        width: 100%;
+        justify-content: space-between;
+
+        h1 {
+            font-size: $h2FontSize;
+            color: $blackColor;
+            font-weight: 700;
+
+        }
+        .btn {
+            border: 1px solid transparent;
+            font-weight: 500;
+        }
+        .btn:hover {
+            border: 1px solid $primaryColor;
+        }
+
+    }
+    .secContainer {
+         width: 100%;
+         margin: 1rem 0 ;
+         gap: 1rem;
+         flex-wrap: wrap;
+         justify-content: space-between;
+
+         .signleItem{
+            position: relative;
+            width: 150px;
+            height: 170px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 1rem;
+            border-radius: 10px;
+            background: $greyText;
+            &:hover {
+                background: $textColor ;
+                box-shadow: 0 2px 2px $inputColor;
+            }
+            img {
+                max-width: 100px;
+            }
+            .icon{
+                position: absolute;
+                top:10px;
+                right : 10px;
+                color: $primaryColor;
+
+            }
+            h3 {
+                font-size: $h3FontSize;
+                color: $blackColor;
+                padding: 1rem 0;
+            }
+         }
+
+    }
+
+
+    .sellers {
+        width: 100%;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: flex-start;
+    
+
+
+        .topSellers,.featuredSellers {
+            .heading{
+                padding: 1rem 0;
+                .btn {
+                    padding: 0.5rem 1rem;
+                    background: $whiteColor;
+                }
+            }
+
+            flex-basis: 50%;
+            .card {
+                padding: 1rem;
+                border-radius: 1rem;
+                background: $whiteColor;
+                gap:1rem;
+                box-shadow: 0 2px 4px $inputColor;
+
+                .users {
+                    padding-right: 1rem;
+                    border-right: 2px solid $greyText ;
+                    img{
+                        width: 30px;
+                        height: 30px;
+
+                        border-radius: 50%;
+                        object-fit:fill;
+                        border: 2px solid $inputColor ;
+                        transition: .5s ease;
+
+                        &:hover{
+                            transform: translateY(-10px);
+
+                        }
+
+                    }
+                }
+
+                .cardText {
+                     span {
+                        color: $blackColor;
+                        font-weight: 500;
+                        small {
+                             font-weight: 500;
+                             .date {
+                                margin-left: 1rem;
+                             }
+
+                        }
+                     }
+
+                }
+            }
+        }
+
+
+
+    }
+      
+}
+
+
+/// MEDIA QUERIES ====>
+@include mq(918px, max) {
+
+    .listingSection{
+
+         .secContainer{
+             .signleItem{
+                width: 300px;
+             }
+
+         }
+
+    }
+
+}

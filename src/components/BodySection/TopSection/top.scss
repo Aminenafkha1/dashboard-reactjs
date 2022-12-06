@@ -1,0 +1,311 @@
+@import "../../../assets/scss/variables";
+@import "../../../assets/scss/mixins";
+
+.topSection {
+  .headerSection {
+    justify-content: space-between;
+
+    .title {
+      h1 {
+        font-size: $h1FontSize;
+        color: $blackColor;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: $normalFontSize;
+        color: $textColor;
+        font-weight: 500;
+      }
+    }
+
+    .searchBar {
+      padding: 1rem 2rem;
+      background: $whiteColor;
+      border-radius: 5px;
+      gap: 1rem;
+      box-shadow: 0 2px 4px $greyText;
+
+      input {
+        border: 0;
+        outline: 0;
+        background: none;
+      }
+      .icon {
+        color: $textColor;
+
+        &:hover {
+          color: $primaryColor;
+        }
+      }
+    }
+
+    .adminDiv {
+      gap: 1rem;
+
+      .icon {
+        font-size: $biggestFontSize;
+        background: $whiteColor;
+        border-radius: 5px;
+        padding: 5px;
+        box-shadow: 0 2px 4px $inputColor;
+        color: $textColor;
+      }
+
+      .adminImage {
+        border: 3px solid $whiteColor;
+        border-radius: 10px;
+        width: 2.5rem;
+        overflow: hidden;
+        box-shadow: 0 2px 4px $inputColor;
+
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+
+  .cardSection {
+    margin-top: 3rem;
+    gap: 1rem;
+
+    .rightCard {
+      position: relative;
+      flex-basis: 70%;
+      height: 200px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      margin: auto;
+      padding: 2rem;
+      border-radius: 1rem;
+      overflow: hidden;
+
+      .videoDiv {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      h1,
+      p,
+      .btn {
+        z-index: 100;
+      }
+
+      h1 {
+        font-size: $h1FontSize;
+        color: $whiteColor;
+        font-weight: 800;
+      }
+      p {
+        padding: 1rem;
+        color: $paleGreen;
+        font-weight: 500;
+      }
+      .buttons {
+        gap: 1rem;
+
+        .btn {
+          box-shadow: none;
+          padding: 0.8rem 1.5rem;
+          color: $primaryColor;
+          border-radius: 2px solid transparent;
+        }
+        .transparent {
+          background: none;
+          border: 2px solid $paleGreen;
+
+          color: $paleGreen;
+          &:hover {
+            background: $paleGreen;
+            color: $primaryColor;
+          }
+        }
+      }
+    }
+
+    .leftCard {
+      flex-basis: 50%;
+
+      .main {
+        position: relative;
+        padding: 1rem;
+        height: 200px;
+        border-radius: 1rem;
+        justify-content: space-between;
+
+        &::before {
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 80%;
+          background: $paleGreen;
+          left: 0;
+          bottom: 0;
+          border-radius: 1rem;
+        }
+
+        .textDiv {
+          z-index: 100;
+          h1 {
+            font-size: $h1FontSize;
+            padding-bottom: 1rem;
+            color: $blackColor;
+          }
+          .flex {
+            gap : 1.5rem;
+            font-weight: 500;
+            color: $blackColor;
+
+            small {
+              font-size: $normalFontSize;
+              display: block;
+              color:$primaryColor;
+              font-weight: 500;
+              padding: .5rem 0;
+            }
+          }
+
+          .link {
+            margin-top: 2rem;
+            cursor: pointer;
+
+            &:hover{
+               color:$primaryColor;
+               .icon {
+                transform: translateX(10px);
+                transition: .3s ease;
+               }
+
+            }
+          }
+        }
+        .imgDiv {
+          transform: translateY(-20px);
+
+          img {
+            width: 200px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+// MEDIA QUERIES ===================>
+
+@include mq(990px, max) {
+  .cardSection{
+    flex-direction: column;
+    .rightCard{
+      width: 100%;
+      flex-basis: 50%;
+    }
+    .leftCard{
+      width: 100%;
+      flex-basis: 50%;
+    }
+
+  }
+
+  .cardSection{
+    .rightCard{
+      margin-bottom: 2rem !important;
+      
+    }
+    .leftCard{
+      justify-content: center;
+      
+      .main::before {
+        width: 100% !important;
+  
+      }
+
+    }
+   
+
+  }
+
+ 
+}
+
+@include mq(918px, max) {
+   .headerSection{
+    .searchBar{
+      display: none;
+    }
+   }
+
+  }
+
+//    .cardSection{
+//     .rightCard{
+//       margin-bottom: 2rem !important;
+      
+//     }
+//     .leftCard{
+//       justify-content: center;
+      
+//       .main::before {
+//         width: 100% !important;
+  
+//       }
+
+//     }
+   
+
+//   }
+// }
+
+
+// @include mq(725px, max) {
+
+
+// }
+@include mq(490px, max) {
+  .headerSection{
+    .adminDiv{
+      display: none;
+    }
+    .title{
+      text-align: center;
+      margin: auto;
+    }
+  }
+  .cardSection{
+    .rightCard{
+      text-align: center;
+      .buttons{
+        margin: auto;
+        flex-direction: column;
+
+        .btn {
+          width: 100%;
+        }
+      }
+    }
+
+    .leftCard{
+      text-align: center;
+      
+    }
+  }
+
+ }
